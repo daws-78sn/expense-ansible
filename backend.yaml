@@ -16,9 +16,9 @@
     ansible.builtin.dnf: #only works for redhat family
       name: "{{ item }}"
       state: installed
-      loop:
-        - mysql
-        - nodejs
+    loop:
+      - mysql
+      - nodejs
 
   - name: create expense user
     ansible.builtin.user:
@@ -65,3 +65,13 @@
       target: /app/schema/backend.sql
       state: import
       name: all
+
+  - name: daemon reload
+    ansible.buitlin.systemd_service:
+      daemon_reload: true
+
+  - name: start and enable backend service
+    ansible.builtin.systemd_service:
+      name: backend
+      state: started
+      enabled: true
