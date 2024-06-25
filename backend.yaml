@@ -31,5 +31,6 @@
 
   - name: unzip backend code
     ansible.builtin.unarchive:
-      src: /tmp/backend.zip
-      dest: /app
+      src: /tmp/backend.zip #src is source by defualt checks in ansible server
+      dest: /app # dest is destination
+      remote_src: yes # with this it will check in remote/destination server
