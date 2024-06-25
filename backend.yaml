@@ -4,7 +4,7 @@
   vars:
     login_host: 172.31.91.96
     login_password: ExpenseApp@1
-    
+
   tasks:
   - name: disable default nodejs
     ansible.builtin.command: dnf module disable nodejs -y
@@ -61,3 +61,4 @@
       login_host: "{{ login_host }}"
       target: /app/schema/backend.sql
       state: dump
+      name: all
