@@ -4,7 +4,7 @@
   vars:
 
   tasks:
-  - name: disable default modejs
+  - name: disable default nodejs
     ansible.builtin.command: dnf module disable nodejs -y
 
   - name: enable nodejs:20
@@ -34,3 +34,8 @@
       src: /tmp/backend.zip #src is source by defualt checks in ansible server
       dest: /app # dest is destination
       remote_src: yes # with this it will check in remote/destination server
+  
+  - name: install npm dependencies
+    ansible.builtin.command: npm install
+    args:
+      chdir: /app
