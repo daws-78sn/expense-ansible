@@ -1,3 +1,11 @@
 [db]
 172.31.91.96
 #db.daws78s.online # or DB ip address
+
+[backend]
+172.31.22.122
+#backend.daws78s.online # or backend ip address
+
+[frontend]
+54.161.29.206
+#daws78s.online or frontend public ip address
